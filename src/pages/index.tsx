@@ -1,7 +1,7 @@
-import React, {useState} from "react";
-import Head from 'next/head';
-import classNames from 'classnames/bind';
-import styles from '@/assets/test.module.scss';
+import React, {useState} from "react"
+import Head from 'next/head'
+import classNames from 'classnames/bind'
+import styles from '@/assets/test.module.scss'
 
 const cx = classNames.bind(styles)
 
