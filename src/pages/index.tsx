@@ -2,6 +2,7 @@ import React, {useState} from "react"
 import Head from 'next/head'
 import classNames from 'classnames/bind'
 import styles from '@/assets/test.module.scss'
+import Header from '@/components/common/header'
 
 const cx = classNames.bind(styles)
 
@@ -22,6 +23,7 @@ export default function Home() {
 
   return (
     <div className="container">
+      <Header />
       <Heading heading="heading" />
       <div>
         <span>{text} 적용 완료</span>

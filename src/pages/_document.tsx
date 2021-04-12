@@ -1,5 +1,4 @@
 import Document, {Html, Head, Main, NextScript} from "next/document"
-import Header from "@/components/common/header"
 
 export default class CustomDocument extends Document {
   render() {
@@ -10,7 +9,6 @@ export default class CustomDocument extends Document {
           <meta property="custom" content="123" />
         </Head>
         <body>
-          <Header/>
           <Main/>
         </body>
         <NextScript/>

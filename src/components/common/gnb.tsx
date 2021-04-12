@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 const Gnb = () => (
-  <div>
+  <nav>
     <Link href="/">
       <a>Home</a>
     </Link>
@@ -9,7 +9,7 @@ const Gnb = () => (
     <Link href="/dynamic/123">
       <a>List</a>
     </Link>
-  </div>
+  </nav>
 )
 
 export default Gnb
