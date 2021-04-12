@@ -1,15 +1,12 @@
 import React, {useState} from "react"
 import Head from 'next/head'
 import classNames from 'classnames/bind'
-import styles from '@/assets/test.module.scss'
 import Header from '@/components/common/header'
-
-const cx = classNames.bind(styles)
 
 function Heading(props: any){
   return (
     <div className="title">
-      <h1 className={cx('red')}>{props.heading}</h1>
+      <h1>{props.heading}</h1>
     </div>
   )
 }
