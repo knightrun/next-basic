@@ -25,7 +25,8 @@
       "@/*": [
         "src/*"
       ]
-    }
+    },
+    "types": ["@emotion/react"]
   },
   "include": [
     "next-env.d.ts",

@@ -1,12 +1,15 @@
 import Gnb from './gnb'
-// import '@/assets/header/header.scss'
-//emotion 써야 할듯
+import {css,jsx} from '@emotion/react'
+
+const danger = css`
+  color: red;
+`
 
 const Header = () => (
   <header>
     <div className="title-wrap">
       <img src="/images/logo.png" alt=""/>
-      <h1>Next Basic</h1>
+      <h1 css={danger}>Next Basic</h1>
     </div>
     <Gnb />
   </header>
