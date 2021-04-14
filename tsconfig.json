@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "lib": [
       "dom",
       "dom.iterable",
@@ -26,7 +26,7 @@
         "src/*"
       ]
     },
-    "types": ["@emotion/react"]
+    "jsxImportSource": "@emotion/react"
   },
   "include": [
     "next-env.d.ts",

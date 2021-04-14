@@ -1,0 +1,18 @@
+@font-face {
+  font-family: "NotoSansKR";
+  src: url("./fonts/NotoSansKR-Regular.woff") format("woff"), url("./fonts/NotoSansKR-Regular.woff2") format("woff2");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "NotoSansKR";
+  src: url("./fonts/NotoSansKR-Bold.woff") format("woff"), url("./fonts/NotoSansKR-Bold.woff2") format("woff2");
+  font-weight: 500;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "NotoSansKR", "Malgun Gothic", sans-serif;
+}
