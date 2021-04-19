@@ -1,6 +1,5 @@
 import Gnb from './gnb'
 import {css, jsx} from '@emotion/react'
-import styled from '@emotion/styled'
 
 const titleWrap = css`
   position: relative;
@@ -14,11 +13,6 @@ const title = css`
   color: #fff;
   line-height: 100px;
   font-weight: 500;
-`
-
-const Section = styled.section`
-  background: red;
-  color: #fff;
 `
 
 const Header = () => (
@@ -35,7 +29,6 @@ const Header = () => (
       </div>
       <h1 css={title}>Next 테스트</h1>
     </div>
-    <Section>This is a section</Section>
     <Gnb/>
   </header>
 )
