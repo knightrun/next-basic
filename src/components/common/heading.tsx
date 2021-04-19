@@ -1,22 +1,32 @@
-import React from "react";
+import React, {ElementType} from "react";
 import styled from "@emotion/styled";
 
 const HeadingWrap = styled.div`
-    text-align: center;
-    margin: 10px 0;
+  text-align: center;
+  margin: 30px 0;
 `
+
+
+
 
 const StyledHeading = styled.div`
-    font-size: ${({level} : {level: number}) => 
-            +level === 2 ? '30px' :
-                    +level === 3 ? '20px' : '40px' };
-    font-weight: 500;
+  font-weight: 500;
+  font-size: ${({level}: { level: number }) =>
+          +level === 2 ? '30px' :
+                  +level === 3 ? '20px' : '40px'};
+  padding-bottom: ${({level}: { level: number }) =>
+          +level === 3 ? '10px' : ''};
+  border-bottom: ${({level}: { level: number }) =>
+          +level === 3 ? '1px solid #ccc' : ''};
 `
 
-const Heading = ({level, title}: {level: number, title: string}) => (
+const Heading = ({level, title}: { level: string, title: string }) => {
+  const tag: ElementType = `h${level}` as ElementType
+  return (
     <HeadingWrap className="title">
-      <StyledHeading as={level === 1 ? "h1" : level === 2 ? "h2" : level === 3 ? "h3" : "h4"} level={+level}>{title}</StyledHeading>
+      <StyledHeading as={tag} level={+level}>{title}</StyledHeading>
     </HeadingWrap>
-)
+  )
+}
 
 export default Heading
