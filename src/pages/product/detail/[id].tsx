@@ -9,7 +9,7 @@ const Post = () => {
   const {id} = router.query
   const [item, setItem] = useState({});
 
-  const API_URL: string = `http://makeup-api.herokuapp.com/api/v1/products/${id}`;
+  const API_URL: string = `http://makeup-api.herokuapp.com/api/v1/products/${id}.json`;
 
   function getData() {
     axios.get(API_URL).then(res => {
@@ -21,7 +21,7 @@ const Post = () => {
     if (id && +id > 0) {
       getData()
     }
-  }, [])
+  }, [id])
 
   return <ProductItem item={item} />
 }
