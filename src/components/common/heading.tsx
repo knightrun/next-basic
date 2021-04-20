@@ -6,9 +6,6 @@ const HeadingWrap = styled.div`
   margin: 30px 0;
 `
 
-
-
-
 const StyledHeading = styled.div`
   font-weight: 500;
   font-size: ${({level}: { level: number }) =>
