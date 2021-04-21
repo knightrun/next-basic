@@ -2,9 +2,10 @@ import {AppProps} from 'next/app'
 import '~/public/css/reset.css'
 import '~/public/css/globals.css'
 import '@/assets/style/common.scss'
-import Header from '@/components/common/header'
-import Footer from '@/components/common/footer'
 import styled from '@emotion/styled'
+import DefaultLayout from '@/components/layouts/default'
+import React from "react";
+import {NextPage} from "next";
 
 const Container = styled.div`
   display:flex;
@@ -12,12 +13,25 @@ const Container = styled.div`
   min-height: 100vh;
 `
 
+// type GetLayoutFunc = (page: React.ReactElement) => React.ReactElement
+// type PageWithLayout = NextPage & {
+//   useLayout: GetLayoutFunc
+// }
+//
+// function App({Component, pageProps}: AppProps) {
+//   const useLayout = (Component as PageWithLayout).useLayout || ((page) => <DefaultLayout>{page}</DefaultLayout>)
+//   return useLayout(<Component {...pageProps} />)
+// }
+
 function App({Component, pageProps}: AppProps) {
+  // @ts-ignore
+  const Layout = Component.Layout || DefaultLayout
+
   return (
     <Container>
-      <Header />
-      <Component {...pageProps} />
-      <Footer />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </Container>
   )
 }

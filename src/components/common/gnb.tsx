@@ -36,6 +36,10 @@ const Gnb = () => (
     <Link href="/product/list">
       <a>List</a>
     </Link>
+
+    <Link href="/none">
+      <a>None</a>
+    </Link>
   </Nav>
 )
 
