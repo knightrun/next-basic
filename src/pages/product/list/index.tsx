@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react"
 import axios from "axios";
 import Heading from "@/components/common/heading";
 import ProductList from "@/components/product/productList";
+import Head from "next/head";
 
 export default function List() {
   const [list, setList] = useState([])
@@ -18,14 +19,20 @@ export default function List() {
   }, [])
 
   return (
-    <div className="container">
-      <Heading level="2" title="상품 리스트"/>
+    <>
+      <Head>
+        <title>상품리스트</title>
+        <meta name="description" content="상품리스트"/>
+      </Head>
+      <div className="container">
+        <Heading level="2" title="상품 리스트"/>
 
-      <Heading level="3" title="베스트 상품"/>
-      {list.length && <ProductList list={list.slice(0, 9)}/>}
+        <Heading level="3" title="베스트 상품"/>
+        {list.length && <ProductList list={list.slice(0, 9)}/>}
 
-      <Heading level="3" title="새로운 상품"/>
-      {list.length && <ProductList list={list.slice(9)}/>}
-    </div>
+        <Heading level="3" title="새로운 상품"/>
+        {list.length && <ProductList list={list.slice(9)}/>}
+      </div>
+    </>
   )
 }
