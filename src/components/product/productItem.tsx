@@ -1,6 +1,5 @@
 import React from "react";
-import {css, jsx} from "@emotion/react";
-import {useRouter} from "next/router";
+import {css} from "@emotion/react";
 
 const itemInfo = css`
   display: table;
@@ -34,19 +33,11 @@ const desc = css`
   color: #222;
 `
 
-const btn = css`
-  cursor: pointer;
-  font-size: 16px;
-`
-
 const ProductItem = ({item}) => {
   const { image_link, name, price, description } = item;
-  const goBack = () => {
-    window.history.back()
-  }
 
   return (
-    <div style={{padding:"40px 30px 0"}}>
+    <>
       <div className="info" css={itemInfo}>
         <div className="img-wrap">
           <img src={image_link} alt={name} />
@@ -59,8 +50,7 @@ const ProductItem = ({item}) => {
       <div className="desc" css={desc}>
         <p>{description}</p>
       </div>
-      <button css={btn} onClick={goBack}>뒤로가기</button>
-    </div>
+    </>
   )
 }
 

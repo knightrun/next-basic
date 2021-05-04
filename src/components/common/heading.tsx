@@ -3,7 +3,6 @@ import styled from "@emotion/styled";
 
 const HeadingWrap = styled.div`
   text-align: center;
-  margin: 30px 0;
 `
 
 const StyledHeading = styled.div`
@@ -12,9 +11,11 @@ const StyledHeading = styled.div`
           +level === 2 ? '30px' :
                   +level === 3 ? '20px' : '40px'};
   padding-bottom: ${({level}: { level: number }) =>
-          +level === 3 ? '10px' : ''};
+          +level === 3 && '10px'};
   border-bottom: ${({level}: { level: number }) =>
-          +level === 3 ? '1px solid #ccc' : ''};
+          +level === 3 && '1px solid #ccc'};
+  margin-top: ${({level}: { level: number }) =>
+          +level === 3 && '30px'};
 `
 
 const Heading = ({level, title}: { level: string, title: string }) => {

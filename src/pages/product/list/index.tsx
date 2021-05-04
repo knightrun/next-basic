@@ -3,21 +3,9 @@ import axios from "axios";
 import Heading from "@/components/common/heading";
 import ProductList from "@/components/product/productList";
 import Head from "next/head";
+import {GetServerSideProps} from "next";
 
-export default function List() {
-  const [list, setList] = useState([])
-  const API_URL: string = 'http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline'
-
-  function getData() {
-    axios.get(API_URL).then(res => {
-      setList(res.data)
-    })
-  }
-
-  useEffect(() => {
-    getData()
-  }, [])
-
+const List = ({list}: any) => {
   return (
     <>
       <Head>
@@ -28,11 +16,25 @@ export default function List() {
         <Heading level="2" title="상품 리스트"/>
 
         <Heading level="3" title="베스트 상품"/>
-        {list.length && <ProductList list={list.slice(0, 9)}/>}
+        <ProductList list={list.slice(0, 9)}/>
 
         <Heading level="3" title="새로운 상품"/>
-        {list.length && <ProductList list={list.slice(9)}/>}
+        <ProductList list={list.slice(9, 18)}/>
       </div>
     </>
   )
 }
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const apiUrl = 'http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline'
+  const res = await axios.get(apiUrl)
+  const data = res.data
+
+  return {
+    props: {
+      list: data,
+    },
+  }
+}
+
+export default List
