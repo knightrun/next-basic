@@ -3,42 +3,40 @@ import React from "react";
 import {css} from "@emotion/react";
 import {useRouter} from "next/router";
 
-const NoneWrap = styled.div`
+const ErrorWrap = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 200px 0;
   text-align: center;
-  min-height: 100vh;
+  font-size: 30px;
 `
-
 const btn = css`
   cursor: pointer;
   font-size: 16px;
   background-color: #222;
-  width: 150px;
+  width: 400px;
   height: 50px;
   border: 0;
   color: #fff;
   font-weight: 500;
-  margin: 20px auto 0;
-  border-radius: 10px;
+  margin-top: 20px;
 `
 
-
-const NoneLayout = ({ children }) => {
+const ErrorLayout = ({children}) => {
   const route = useRouter()
-  const goMain = async () => {
-    await route.push('/')
+  const goBack = async () => {
+    await route.back()
   }
 
   return (
-    <div className="none-container">
-      <NoneWrap>
-        {children}
-        <button css={btn} onClick={goMain}>메인으로</button>
-      </NoneWrap>
-    </div>
+    <ErrorWrap>
+      {children}
+      <button css={btn} onClick={goBack}>뒤로가기</button>
+    </ErrorWrap>
   )
 }
 
-export default NoneLayout
+export default ErrorLayout
