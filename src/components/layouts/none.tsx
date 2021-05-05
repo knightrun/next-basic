@@ -27,15 +27,15 @@ const btn = css`
 
 const NoneLayout = ({ children }) => {
   const route = useRouter()
-  const goMain = async () => {
-    await route.push('/')
+  const goBack = async () => {
+    await route.back()
   }
 
   return (
     <div className="none-container">
       <NoneWrap>
         {children}
-        <button css={btn} onClick={goMain}>메인으로</button>
+        <button css={btn} onClick={goBack}>뒤로가기</button>
       </NoneWrap>
     </div>
   )

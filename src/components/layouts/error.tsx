@@ -27,14 +27,14 @@ const btn = css`
 
 const ErrorLayout = ({children}) => {
   const route = useRouter()
-  const goBack = async () => {
-    await route.back()
+  const goMain = async () => {
+    await route.push('/')
   }
 
   return (
     <ErrorWrap>
       {children}
-      <button css={btn} onClick={goBack}>뒤로가기</button>
+      <button css={btn} onClick={goMain}>메인으로</button>
     </ErrorWrap>
   )
 }

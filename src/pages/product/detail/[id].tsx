@@ -21,7 +21,7 @@ const DetailWrap = styled.div`
   padding: 0 30px;
 `
 
-const Post = ({item}: any) => {
+const Post = ({item, name}) => {
   const goBack = () => {
     window.history.back()
   }
@@ -36,6 +36,7 @@ const Post = ({item}: any) => {
         <ProductItem item={item}/>
         <button css={btn} onClick={goBack}>뒤로가기</button>
       </DetailWrap>
+      {name} 환경입니다.
     </>
   )
 }
@@ -49,6 +50,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   return {
     props: {
       item: data,
+      name: process.env.name
     },
   }
 }

@@ -5,7 +5,7 @@ import ProductList from "@/components/product/productList";
 import Head from "next/head";
 import {GetServerSideProps} from "next";
 
-const List = ({list}: any) => {
+const List = ({list, name}) => {
   return (
     <>
       <Head>
@@ -13,6 +13,7 @@ const List = ({list}: any) => {
         <meta name="description" content="상품리스트"/>
       </Head>
       <div className="container">
+        {name} 환경입니다.
         <Heading level="2" title="상품 리스트"/>
 
         <Heading level="3" title="베스트 상품"/>
@@ -26,13 +27,14 @@ const List = ({list}: any) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const apiUrl = 'http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline'
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL
   const res = await axios.get(apiUrl)
   const data = res.data
 
   return {
     props: {
       list: data,
+      name: process.env.name
     },
   }
 }
