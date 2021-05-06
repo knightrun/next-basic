@@ -29,20 +29,37 @@ const Nav = styled.nav`
   }
 `
 
-const Gnb = () => (
-  <Nav>
-    <Link href="/">
-      <a>Home</a>
-    </Link>
+const Gnb = () => {
+  const gnbList = [
+    {
+      title: 'Home' ,
+      link: '/'
+    },
+    {
+      title: 'About',
+      link: '/about'
+    },
+    {
+      title: 'List',
+      link: '/product/list'
+    },
+    {
+      title: 'None',
+      link: '/none'
+    }
+  ]
 
-    <Link href="/product/list">
-      <a>List</a>
-    </Link>
-
-    <Link href="/none">
-      <a>None</a>
-    </Link>
-  </Nav>
-)
+  return (
+    <Nav>
+      {
+        gnbList.map((item: {title:string, link:string}) => (
+          <Link href={item.link}>
+            <a>{item.title}</a>
+          </Link>
+        ))
+      }
+    </Nav>
+  )
+}
 
 export default Gnb

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import ProductItem from "@/components/product/productItem";
 import axios from "axios";
 import Head from "next/head";
@@ -41,6 +41,7 @@ const Post = ({item, name}) => {
   )
 }
 
+//항상 최신 상태유지, 관리자 페이지, 분석차트
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const id = context.params.id
   const apiUrl = `http://makeup-api.herokuapp.com/api/v1/products/${id}.json`

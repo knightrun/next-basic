@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from "react"
+import React from "react"
 import axios from "axios";
 import Heading from "@/components/common/heading";
 import ProductList from "@/components/product/productList";
 import Head from "next/head";
-import {GetServerSideProps} from "next";
+import {GetStaticProps} from "next";
 
 const List = ({list, name}) => {
   return (
@@ -26,8 +26,9 @@ const List = ({list, name}) => {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL
+//마케팅 페이지, 블로그 게시물, 제품목록, 도움말, 문서 (미리만들어 놓아도 되는 문서)
+export const getStaticProps: GetStaticProps = async () => {
+  const apiUrl = process.env.apiUrl
   const res = await axios.get(apiUrl)
   const data = res.data
 
