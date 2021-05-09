@@ -44,6 +44,10 @@ const Gnb = () => {
       link: '/product/list'
     },
     {
+      title: 'Admin',
+      link: '/admin'
+    },
+    {
       title: 'None',
       link: '/none'
     }
@@ -52,8 +56,8 @@ const Gnb = () => {
   return (
     <Nav>
       {
-        gnbList.map((item: {title:string, link:string}) => (
-          <Link href={item.link}>
+        gnbList.map((item: {title:string, link:string}, index) => (
+          <Link href={item.link} key={index}>
             <a>{item.title}</a>
           </Link>
         ))
