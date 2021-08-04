@@ -4,7 +4,7 @@ import '~/public/css/globals.css'
 import '@/assets/style/common.scss'
 import styled from '@emotion/styled'
 import DefaultLayout from '@/components/layouts/default'
-import React from "react";
+import React, {ComponentType} from "react";
 import {NextPage} from "next";
 
 const Container = styled.div`
@@ -23,9 +23,12 @@ const Container = styled.div`
 //   return useLayout(<Component {...pageProps} />)
 // }
 
+type PageWithLayout = NextPage & {
+  Layout: ComponentType
+}
+
 function App({Component, pageProps}: AppProps) {
-  // @ts-ignore
-  const Layout = Component.Layout || DefaultLayout
+  const Layout = (Component as PageWithLayout).Layout || DefaultLayout
 
   return (
     <Container>
